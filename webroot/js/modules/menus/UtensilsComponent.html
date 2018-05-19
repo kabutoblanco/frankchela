@@ -1,0 +1,116 @@
+<form class="wrap-form-reservation size22 m-l-r-auto">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" ng-click="ec.setSection(0)">Lugar</a></li>
+            <li class="breadcrumb-item"><a href="" ng-click="ec.setSection(1)">Menu</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Utensilios</li>
+        </ol>
+    </nav>
+
+    <div class="row" ng-controller="menuCtrl as mc">
+        <div class="accordion col-md-12" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Mesas
+                    </button>
+                    </h5>
+                </div>
+                
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row">
+                            <div ng-repeat="menu in mc.menus track by $index" ng-if="menu.product_type_id == 19" class="card col-md-4" style="width: 18rem;">
+                                <img class="card-img-top p-t-10" ng-src="../img/{{menu.image}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{menu.name}}</h5>
+                                    <p class="card-text">{{menu.description}}</p>
+                                    <a href="" class="btn btn-primary">Agregar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Vajillas
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row">
+                            <div ng-repeat="menu in mc.menus track by $index" ng-if="menu.product_type_id == 20" class="card col-md-4" style="width: 18rem;">
+                                <img class="card-img-top p-t-10" ng-src="../img/{{menu.image}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{menu.name}}</h5>
+                                    <p class="card-text">{{menu.description}}</p>
+                                    <a href="" class="btn btn-primary">Agregar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Cubiertos
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row">
+                            <div ng-repeat="menu in mc.menus track by $index" ng-if="menu.product_type_id == 21" class="card col-md-4" style="width: 18rem;">
+                                <img class="card-img-top p-t-10" ng-src="../img/{{menu.image}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{menu.name}}</h5>
+                                    <p class="card-text">{{menu.description}}</p>
+                                    <a href="" class="btn btn-primary">Agregar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingOne3">
+                    <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="true" aria-controls="collapseOne3">
+                        Flores
+                    </button>
+                    </h5>
+                </div>
+                
+                <div id="collapseOne3" class="collapse" aria-labelledby="headingOne3" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row">
+                            <div ng-repeat="menu in mc.menus track by $index" ng-if="menu.product_type_id == 22" class="card col-md-4" style="width: 18rem;">
+                                <img class="card-img-top p-t-10" ng-src="../img/{{menu.image}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{menu.name}}</h5>
+                                    <p class="card-text">{{menu.description}}</p>
+                                    <a href="" class="btn btn-primary">Agregar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="wrap-btn-booking flex-c-m m-t-6 p-t-10">
+        <!-- Button3 -->
+        <button ng-click="ec.next()" type="button" class="btn3 flex-c-m size13 txt11 trans-0-4">
+            Siguiente
+        </button>
+        
+    </div>
+</form>

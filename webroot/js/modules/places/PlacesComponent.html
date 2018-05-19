@@ -1,0 +1,95 @@
+<form class="wrap-form-reservation size22 m-l-r-auto">
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Lugar</li>
+    </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Date -->
+            <span class="txt9">
+                Fecha
+            </span>
+
+            <div class="wrap-inputdate size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <input ng-model="ec.date" ng-change="ec.setDate(ec.date)" class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="date" name="date">
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Time -->
+            <span class="txt9">
+                Hora
+            </span>
+
+            <div class="wrap-inputtime size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <!-- Select2 -->                                
+                <input ng-model="ec.time" ng-change="ec.setTime(ec.time)" class="bo-rad-10 sizefull txt10 p-l-20" type="time" name="time">
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- People -->
+            <span class="txt9">
+                Personas
+            </span>
+
+            <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <input ng-init="ec.size=10" ng-model="ec.size" ng-change="ec.setSize(ec.size)" class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="cantidad" placeholder="Cantidad" require>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-b-10">
+        <div class="col-md-6" ng-controller="eventTypeCtrl as etc">
+            <!-- Time -->
+            <span class="txt9">
+                Tipos
+            </span>
+                <!-- Select2 -->
+            <select class="form-control selection-1" name="time" ng-model="ec.type">
+                <option value="">---Please select---</option>
+                <option value="{{eventType.id}}" ng-repeat="eventType in etc.eventTypes track by $index">{{eventType.name}}</option>
+            </select>
+        </div>
+
+        <div class="col-md-6" ng-controller="thematicCtrl as tc">
+            <!-- Time -->
+            <span class="txt9">
+                Tematicas
+            </span>
+            <!-- Select2 -->
+            <select class="form-control selection-1" name="time" ng-model="ec.thematic">
+                <option value="">---Please select---</option>
+                <option value="{{thematic.id}}" ng-repeat="thematic in tc.thematics track by $index">{{thematic.name}}</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="row" ng-controller="placeCtrl as pc">
+        <div ng-repeat="place in pc.places track by $index" 
+            ng-if="(ec.time | date:'hh:mm') >= (place.time_open | date:'hh:mm') 
+                && place.size >= ec.size 
+                && ec.size !== null && ec.size !== undefined
+                && pc.isReserved(place.id, ec.date | date:'yyyy-MM-dd')" 
+                class="card col-md-4" style="width: 18rem;" 
+                ng-class="place.id == ec.place ? '' : ec.agotado">
+            <img class="card-img-top p-t-10" ng-src="../img/{{place.image}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{place.name}}</h5>
+                <p class="card-text">Horario: {{place.time_open | date:'hh:mm:a'}} - {{place.time_close  | date:'hh:mm:a'}}.<br>Capacidad: {{place.size}}</p>
+                <button class="btn btn-primary" 
+                ng-click="ec.setPlace(place)"
+                ng-disabled="place.id == ec.place || ec.place === undefined || ec.place === null ? false : true">Reservar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap-btn-booking flex-c-m m-t-6 p-t-10">
+        <!-- Button3 -->
+        <button type="button" class="btn3 flex-c-m size13 txt11 trans-0-4" ng-click="ec.next()" ng-disabled="ec.isPlace">
+            Siguiente
+        </button>
+    </div>
+</form>

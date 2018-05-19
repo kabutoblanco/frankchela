@@ -1,0 +1,10 @@
+/*Deshabilitar secciones en una card Bootstrap*/
+.agotado {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.agotado img {
+    opacity: 0.5;
+}
+.agotado button {
+    background-color: black;
+}

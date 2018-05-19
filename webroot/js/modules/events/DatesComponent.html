@@ -1,0 +1,63 @@
+<form class="wrap-form-reservation size22 m-l-r-auto">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" ng-click="ec.setSection(0)">Lugar</a></li>
+            <li class="breadcrumb-item"><a href="" ng-click="ec.setSection(1)">Menu</a></li>
+            <li class="breadcrumb-item"><a href="" ng-click="ec.setSection(2)">Utensilios</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Datos Personales</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Name -->
+            <span class="txt9">
+                Nombres
+            </span>
+
+            <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Nombres">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Name -->
+            <span class="txt9">
+                Apellidos
+            </span>
+
+            <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Apellidos">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Phone -->
+            <span class="txt9">
+                Telefono
+            </span>
+
+            <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="phone" placeholder="Telefono">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Email -->
+            <span class="txt9">
+                Correo
+            </span>
+
+            <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Correo">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="wrap-btn-booking flex-c-m m-t-6">
+        <!-- Button3 -->
+        <button ng-click="ec.next()" type="button" class="btn3 flex-c-m size13 txt11 trans-0-4">
+            Enviar
+        </button>
+    </div>
+</form>
